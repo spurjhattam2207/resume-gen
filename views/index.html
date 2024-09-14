@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Generator</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Upload LinkedIn PDF</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="pdf" accept="application/pdf" required>
+      <button type="submit">Generate Resume</button>
+    </form>
+  </div>
+
+  <div id="loading" class="hidden">
+    <p>Generating your resume, please wait...</p>
+  </div>
+
+  <script>
+    // Show loading screen on form submit
+    document.querySelector('form').addEventListener('submit', function () {
+      document.querySelector('.container').classList.add('hidden');
+      document.getElementById('loading').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
